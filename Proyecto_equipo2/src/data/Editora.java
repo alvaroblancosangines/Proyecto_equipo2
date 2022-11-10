@@ -1,5 +1,5 @@
 package data;
 
-public interface Editora {
-
+public class Editora {
+	public Editora(){}
 }
