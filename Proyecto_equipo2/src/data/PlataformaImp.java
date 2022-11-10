@@ -1,23 +1,30 @@
 package data;
 
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
-public class PlataformaImp  implements Plataforma {
+import model.Editora;
+import model.Videojuego;
+
+public class PlataformaImp implements Plataforma {
 	// Atributos:
 	private String nombre;
-	private ArrayList<EditoraImp> listaEditoras;
-	private ArrayList<VideojuegoImp> listaVideojuegos;
+	private ArrayList<Editora> listaEditoras;
+	private ArrayList<Videojuego> listaVideojuegos;
 	
 	
 	// Constructores:
 	public PlataformaImp() {
-		listaEditoras = new ArrayList<EditoraImp>();
-		listaVideojuegos = new ArrayList<VideojuegoImp>();
+		listaEditoras = new ArrayList<Editora>();
+		listaVideojuegos = new ArrayList<Videojuego>();
 	}
 	
-	public PlataformaImp(String nombre, ArrayList<EditoraImp> listaEditoras, ArrayList<VideojuegoImp> listaVideoJuegos) {
+	public PlataformaImp(String nombre, ArrayList<Editora> listaEditoras, ArrayList<Videojuego> listaVideoJuegos) {
 		this.nombre = nombre;
 		this.listaEditoras = listaEditoras;
 		this.listaVideojuegos = listaVideoJuegos;
@@ -28,11 +35,11 @@ public class PlataformaImp  implements Plataforma {
 	public String getNombre() { return nombre; }
 	public void setNombre(String nombre) { this.nombre = nombre; }
 
-	public ArrayList<EditoraImp> getListaEditoras() { return listaEditoras; }
-	public void setListaEditoras(ArrayList<EditoraImp> listaEditoras) { this.listaEditoras = listaEditoras; }
+	public ArrayList<Editora> getListaEditoras() { return listaEditoras; }
+	public void setListaEditoras(ArrayList<Editora> listaEditoras) { this.listaEditoras = listaEditoras; }
 
-	public ArrayList<VideojuegoImp> getListaJuegos() { return listaVideojuegos; }
-	public void setListaJuegos(ArrayList<VideojuegoImp> listaJuegos) { this.listaVideojuegos = listaJuegos; }
+	public ArrayList<Videojuego> getListaJuegos() { return listaVideojuegos; }
+	public void setListaJuegos(ArrayList<Videojuego> listaJuegos) { this.listaVideojuegos = listaJuegos; }
 
 	
 	// toString:
@@ -42,12 +49,7 @@ public class PlataformaImp  implements Plataforma {
 	}
 	
 	
-	// Altas:
-	public void altaVideojuego(VideojuegoImp v) {
-		listaVideojuegos.add(v);
-	}
-	
-	public void altaEditora(EditoraImp e) {
+	public void altaEditora(Editora e) {
 		listaEditoras.add(e);
 	}
 	
@@ -61,5 +63,24 @@ public class PlataformaImp  implements Plataforma {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public List<Videojuego> altaVideojuegos() {
+		FileReader listaVideojuegos = null;
+		String videojuego = null;
+		Videojuego juego = null;
+		try {
+			listaVideojuegos = new FileReader("vgsales.csv");
+			BufferedReader br = new BufferedReader(listaVideojuegos);
+
+			while((videojuego = br.readLine()) != null) {
+				juego = sc.next();
+				listaVideojuegos.add(juego);
+			}
+			
+			sc.close();
+		}catch(Exception ex) {}
+		
 	}
 }

@@ -1,5 +1,7 @@
 package tools;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Lector {
@@ -32,4 +34,5 @@ public class Lector {
 		System.out.println(msg);
 		return leerInt();
 	}
+	
 }
