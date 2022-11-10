@@ -1,5 +1,5 @@
 package data;
 
-public interface Videojuego {
-
+public class Videojuego {
+	public Videojuego() {}
 }
