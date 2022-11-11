@@ -16,12 +16,12 @@ public class ServicePlataformaImp {
 		
 		
 		// Constructores:
-		public PlataformaImp() {
+		public ServicePlataformaImp() {
 			listaEditoras = new ArrayList<EditoraImp>();
 			listaVideojuegos = new ArrayList<Videojuego>();
 		}
 		
-		public PlataformaImp(String nombre, ArrayList<EditoraImp> listaEditoras, ArrayList<Videojuego> listaVideoJuegos) {
+		public ServicePlataformaImp(String nombre, ArrayList<EditoraImp> listaEditoras, ArrayList<Videojuego> listaVideoJuegos) {
 			this.nombre = nombre;
 			this.listaEditoras = listaEditoras;
 			this.listaVideojuegos = listaVideoJuegos;
